@@ -1,0 +1,230 @@
+Primeros comandos de git
+
+> git --version
+
+El comando previos en el cmd nos indica que version tenemos de git
+Cuando solo tenemos "doble menos" --version significa que lo que sigue es
+una palabra completa. A diferencia cuando tenemos "un menos" -m significa
+que lo que sigue es una abreviatura.
+
+> git help ó git -h
+
+El comando previo nos proporciona ayuda general de comandos en git.
+
+> git -h commit
+
+El comando previo nos proporciona información detallada del comando "commit"
+
+> :
+
+Cuando tenemos mas información de la que se puede mostrar en pantalla, nos aparecen dos puntos
+estos indican que podemos desplazarnos hacia abajo con las flechas, para poder salir de esta pantalla
+lo podemos hacer solo oprimiendo la tecla "q"
+
+OJO: nota importante es configurar nuestro git con nuestro usuario y cuenta de correo. Git trabaja con la
+confianza con la que esta trabajando el usuario en este equipo.
+
+Cuando ejecutamos una acción en git, este no muestra información de que el comando que ejecutamos es 
+correcto, solo nos muestra mensaje cuando el comando ejecutado es incorrecto.
+
+> git config --global -e
+
+El comando previo nos permite modificar nuestro usuario y el correo con el cual nos registramos.
+Si tienes instalado el git con la version de Visual Studio Code, por defecto te abre el edito de código
+de Visual, pero sino, en la misma consola te abre la opción de modificarlo. Para poder guar la modificación
+tenemos que ejecutar el siguiente comando.
+
+Esc + :wq! 
+
+: (Entrar en modo de comando de Vim)
+w (write)
+q (Cierra Vim)
+! (Fuerza la ejecución del comando)
+
+Los Repositorios:
+Normalmente los repositorios se conocen como proyectos.
+
+OJO: Si abrimos nuestro cmd y colocamos el comando cd y arrastramos la carpeta donde queremos trabajar, por default nos proporciona el path completo. WOW!
+
+> git init
+
+Inicializa nuestro repositorio. Crea un directorio oculto llamado .git importante no borrar nunca este repositorio.
+Ya no podremos regresar en el tiempo si lo borramos.
+
+> git status
+
+El comando previo nos da información de la rama sobre la cual nos encontramos trabajando asi como los commit.
+Por ejemplo: On Branch master, nos indica que estamos en la rama master del proyecto.
+
+> git add
+
+El comando previo nos prepara los archivos para poder hacer un commit, (un commit es como tomar una foto) lo podemos hacer archivo por archivo o todos los de el directorio con un punto. Por ejemplo: git add index.html
+Cuando ejecutamos este comando, y verificamos el status, tenemos: 
+
+>Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+
+El archivo aparece en verde. Lo cual nos indica que ya esta listo nuestro archivo para poder realizar un commit.
+
+> git add .
+
+El comando previo es el comando que nos prepara en el unstage todos los archivos que esten en nuestro directorio, los prepara para poder hacer un commit.
+
+> git reset .DS_Store
+
+El comando previo nos remueve un archivo del "unstage" , i.e., cuando relalicemos el commit no lo considerara.
+Si ejecutamos el comando y realizamos un status, tenemos:
+
+>Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .DS_Store
+
+Donde el nombre del archivo se marca en color rojo. Para nuestro ejemplo lo regresamos al "unstage".
+
+> git commit -m "Primer commit"
+
+El comando previo realiza un commit, se recomienda que el comentario sea breve y conciso. Ejemplo: lo vamos
+a ejecutar.
+
+> C:\Users\Jofiel\Documents\Git\Curso_Git\01-bases>git status
+On branch master
+nothing to commit, working tree clean
+
+Nos indica que estamos trabajando en la rama maestra. 
+Nada que comprometer, trabajando en árbol limpio. Quiere decir que no hemos realizado cambios.
+Cada commit que hacemos nos permite hacer viajes en el tiempo, i.e. recuperar información.
+Hacer commit es importante, cada que hacemos algo que valga la pena podemos hacer un commit.
+
+> git log
+
+Con este comando podemos ver los commit que hemos realizado, quien los realizo, cuando.
+
+> C:\Users\Jofiel\Documents\Git\Curso_Git\01-bases> git log
+commit 31ae14fcf3a5e1ef511300b7decd4ae2ba7c9320 (HEAD -> master)
+Author: unknown <jofiel.tenorio1012@gmail.com>
+Date:   Sun May 19 10:17:46 2024 -0600
+
+> git log
+
+Realizamos otro cambio en nuestro código y realizamos un commit llamado "Segundo commit". Si hacemos un git log:
+
+> commit c5beb1d4b5dbe6ff4bce8da1d0211feb7fb7530e (HEAD -> master)
+Author: unknown <jofiel.tenorio1012@gmail.com>
+Date:   Sun May 19 11:03:55 2024 -0600
+
+    Segundo commit
+
+> commit 31ae14fcf3a5e1ef511300b7decd4ae2ba7c9320 (origin/master)
+Author: unknown <jofiel.tenorio1012@gmail.com>
+Date:   Sun May 19 10:17:46 2024 -0600
+
+    Primer commit
+
+Queremos regresar al primer commit, porque en el segundo realice un commit pero mi código estaba mal.
+Lo hacemos con el siguiente comando:
+
+> git checkout -- .
+
+Nos recupera el anterior commit.
+
+> git branch
+
+Nos indica en que rama estamos trabajando. Por ejemplo, nosotros estamos trabajando en la rama *master
+Las ramas hace una analogia a un arbol, donde las ramas pueden regresar a la rama principal, en este caso
+el master. Una rama es como crear una version alterna de la cual nosotros nos encontramos, como crear 
+multi universos. Por ejemplo, una rama la desarrollamos y no nos funciona solo la eliminamos.
+Se recomienda hacer las minimas modificaciones en la rama master. Siempre es recomendable trabajar en
+ramas.
+
+> git branch -m master main
+
+El comando previo modifica en nombre de la rama master por main.
+
+> git config --global -e
+
+El comando previo es para realizar configuraciones.
+
+OJO: cuando creamos un nuevo archivo en un directorio que es un repositorio de GitHub, en VS Code nos aparece una U y el archivo en color verde, esto indica a Git que es untrack es decir que no se le esta dando seguimiento al mismo.
+
+Hay que subirlo al unstage.
+> git add .
+ con este comando notamos que, la letra cambia a una A de color verde. Hacemos un commit
+> git commit -m "Readme agregado"
+ si después del commit lo borramos, lo podemos recuperar con un checkout
+> git checkout -- .
+
+> git log
+
+commit 31ae14fcf3a5e1ef511300b7decd4ae2ba7c9320
+Author: unknown <jofiel.tenorio1012@gmail.com>
+Date:   Sun May 19 10:17:46 2024 -0600
+
+    Primer commit
+
+Notas: 31ae14fcf3a5e1ef511300b7decd4ae2ba7c9320, esta parte del commit es el ash, y es único.
+HEAD -> main, es donde estamos ahora.
+Author: Quien esta realizando los cambios en el config global.
+	
+> git add  *.html
+
+Este comando agrega al stage todos los archivos que terminen en .html. Ahora solo gacemos un commit -m "Cambios archivos html"
+
+> git add *.js
+
+Este comando agrega al stage todos los archivos que terminen en .js pero no los agrega ??
+Bueno, la cosa es que están en un sub-directorio para poderlos agregar, necesito indicar el subdirectorio.
+
+> git add js/*.js
+
+Asi si agrega al stage todos aquellos archivos que esten en el subdirectorio js. Ahora solo hacemos un commit
+-m "Archivos de Js agregados"
+
+> git add css/
+
+Nosotros tenemos el directorio css, y en su interior tiene otros directorios y archivos diversos, para agregarlos
+todos los de ese directorio lo hacemos con el comando previo.
+
+> git status
+
+On branch main
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   uploads/.gitkee
+
+Si yo quiero solo saber que cambios están en el stage, lo podermos hacer con una bandera de corto, asi:
+
+> git status --short
+
+Este comando solo nos retorna:
+
+A  uploads/.gitkeep
+
+Que nos quiere decir que tenemos en el stage un directorio con un archivo.
+
+Nosotros nos queremos crear un alias para este comando demasiado largo, lo hacemos de la siguiente manera:
+
+> git config --global alias.s status --short
+
+Cuando ejecutamos el código: git s nos proporciona la forma larga, esto es porque no nos reconoció el espacio.
+Para configurar esto lo hacemos de la siguiente manera:
+
+> git config --global -e
+
+ Con este comando podemos modificar de forma manual nuestras configuraciones. Aquí solo agregamos lo que nos hace falta en nuestro alias. Recordemos que si nuestro editor es Vim, lo guardamos y cerramos con :wq!
+
+> git log --oneline
+
+Este comando nos proporciona la información de log, i.e., nuestros commits de forma resumida. Crear el alias de este comando.
+
+
+
+
+
+
+
+ 
+
+

@@ -1,0 +1,33 @@
+Una vez en el bash de git, lo configuramos:
+
+$ git config --global user.name "jofiel"
+
+$ git config --global user.email "jofiel.tenorio1012@gmail.com"
+
+$ git config --global --list
+
+Creamos un repositorio en GitHub, cuando lo creemos, tenemos que copiar la urrl
+
+Abrimos Visual Studio Code, Terminal --> Nueva terminal en el directorio donde estemos en prom, 
+en esa carpeta se van a crear una carpeta llamada como el repositorio.
+
+
+PS C:\SQLite\Python> git clone https://github.com/Jofiel/Python.git
+
+
+Colocamos el script en la carpeta que se creo y por medio de la terminal nos colocamos en el directorio que se creo.
+
+Para guardar los cambios en el reporsitorio, lo hacemos mediante el siguiente comando en consola:
+
+
+> git add .
+> git commit -m "Descripción del cambio"
+> git push
+
+
+
+> "git add ." es un comando útil para preparar todos los cambios realizados en tu proyecto para ser incluidos en el próximo       commit de una manera rápida y eficiente.
+
+Recursividad: El punto (.) especifica que Git debe agregar todos los cambios en el directorio actual y en todos los subdirectorios de manera recursiva. Esto asegura que todos los cambios realizados en el proyecto sean incluidos en la zona de preparación.
+
+> "git push" sube los cambios al repositorio de GitHub
