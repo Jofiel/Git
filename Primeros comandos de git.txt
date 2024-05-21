@@ -219,8 +219,9 @@ Para configurar esto lo hacemos de la siguiente manera:
 
 Este comando nos proporciona la información de log, i.e., nuestros commits de forma resumida. Crear el alias de este comando.
 
+> git pull origin main
 
-
+Este comando trae los ultimos cambios del repositorio remoto:
 
 
 
