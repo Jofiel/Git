@@ -13,3 +13,22 @@
 
 **git init:** <br> 
 <p style="margin-left: 30px;"> Crea un sub-directorio llamado .git en el directorio donde se ejecuta el comando. Este sub-directorio contiene todos los metadatos y objetos necesarios para crear el repositorio git. 
+
+# ¿Qué significan las letras en el explorador de archivos?
+
+Las letras que aparecen junto a los archivos en el explorador de archivos en (VS Code) indican el estado de los archivos en relación con el control de versiones de Git.
+
+1. **U - Untracked (No rastreado):**<br> 
+-El archivo es nuevo y Git no lo esta rastreando todavia.<br>
+-Si queremos que Git lo comience a rastrear este archivo, se debe añadir al stage, con **git add nombre_archivo**
+
+2. **M - Modified (Modificado):**<br>
+-El archivo ha sido modificado desde el ultimo commit.<br>
+-Si deseamos guardar los cambios en el proximo commit, debemos añadir estos cambios al indice **stage** usando **git add.**
+
+3. **A - Added (Añadido al Stage)**<br>
+-El archivo ha sido añadido al Stage y esta listo para ser incluido en el proximo commit.
+-Para guardar los cambios en el repositorio debemos hacer solo un commit.
+
+
+
