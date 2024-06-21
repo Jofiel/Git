@@ -56,7 +56,7 @@ La forma corta __-m__ usa solamente un guión, mientras que la larga __--message
 
 Git no diferencia si el directorio inicializado esta lleno o vacío. En cualquier caso el proceso de convertir un directorio en un repositorio de Git es el mismo. Para indicar que el directorio es un repositorio de Git, se crea un directorio oculto llamado .git en el nivel superior del proyecto. 
 
-3. Adición de un archivo al repositorio.
+3. Adición de un archivo al indice (stage).
 
         > git add index.html
 
@@ -104,6 +104,17 @@ Supongamos que tenemos un archivo llamado __epom.html__ y ya no es necesario en 
 8. Clonar un repositorio:
 
         > git clone
+
+9. Restaurar archivos
+
+Supongamos que hemos guardado modificaciones que realizamos en el archivo Class_3 SUMX y ALL.md. Podemos recuperar los cambios que no hemos agregado al stage con el siguiente comando:
+
+        > git restore "Class_3 SUMX y ALL.md"
+
+Este comando descarta los cambios en el archivo y lo restaura en su ultimo commit. <br>
+Tambien podemos restaurar la adicion de un archivo al stage con el siguiente comando:
+
+        > git restore --estaged "Class_3 SUMX y ALL.md"
 
 
 
